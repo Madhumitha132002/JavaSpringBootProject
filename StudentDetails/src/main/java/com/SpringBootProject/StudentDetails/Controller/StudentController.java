@@ -3,9 +3,13 @@ package com.SpringBootProject.StudentDetails.Controller;
 import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
 import com.SpringBootProject.StudentDetails.Model.StudentModel;
 import com.SpringBootProject.StudentDetails.Repository.StudentDAO;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -14,6 +18,8 @@ import java.util.List;
 //Specifies all the request mappings in controller using this base path
 @RequestMapping("/students")
 public class StudentController {
+	
+	public static final Logger logInfo = LoggerFactory.getLogger(StudentController.class) ;
 	
 	  @Autowired
     private final StudentDAO studentRepository;
@@ -24,30 +30,14 @@ public class StudentController {
     }
     //To get the Student Details
     @PostMapping("/add")
-    public ResponseEntity<String> addStudent(@RequestBody StudentModel studentModel) {
-        // Check if any of the required fields are empty
-        if (isEmpty(studentModel.getName()) ||
-            isEmpty(studentModel.getRegisterNo()) ||
-            isEmpty(studentModel.getGender()) ||
-            isEmpty(studentModel.getPhoneNumber()) ||
-            isEmpty(studentModel.getCurrentStatus()) ||
-            isEmpty(studentModel.getEmailId()) ||
-            isEmpty(studentModel.getCourse()) ||
-            isEmpty(studentModel.getBatch())) {
-            
-            // If any required field is empty, return bad request status
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("All input fields are required");
-        }
+    
+    
+    public void addStudent(@RequestBody StudentModel studentModel) {
         
-        // If all required fields are present, proceed to add the student
-        studentRepository.addStudentDetails(studentModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Student added successfully");
+    	studentRepository.addStudentDetails(studentModel);
     }
+       
 
-    // Helper method to check if a value is empty (null or empty string)
-    private boolean isEmpty(String value) {
-        return value == null || value.isEmpty();
-    }
     @DeleteMapping("/delete/{studentId}")
     public ResponseEntity<String> deleteStudent(@PathVariable int studentId) {
         int isdeleted=studentRepository.deleteStudentDetails(studentId);
@@ -64,7 +54,7 @@ public class StudentController {
     public ResponseEntity<String> updateStudent(@RequestBody StudentModel studentModel) {
         int isUpdated = studentRepository.updateStudentDetails(studentModel);
 //        System.out.print(studentModel);
-        if (isUpdated!=0) {
+        if (isUpdated!=1) {
             return ResponseEntity.ok().body("Student updated successfully");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("StudentDetails is not found or update failed");
@@ -82,7 +72,11 @@ public class StudentController {
     }
 
     @GetMapping("/all")
+  
     public ResponseEntity<List<StudentModel>> getAllStudents() {
+    	
+    	  logInfo.info("Student info logging was Enabled");
+    	  logInfo.debug("Student info debug was enabled");
         List<StudentModel> students = studentRepository.getAllStudentDetails();
         if (!students.isEmpty()) {
             return ResponseEntity.ok().body(students); // Return list of students if not empty

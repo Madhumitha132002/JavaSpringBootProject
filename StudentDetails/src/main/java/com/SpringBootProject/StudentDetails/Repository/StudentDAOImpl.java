@@ -21,6 +21,7 @@ public class StudentDAOImpl implements StudentDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //Add Student Details
     @Override
     public int addStudentDetails(StudentModel studentModel) {
         String insertQuery = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
@@ -29,73 +30,22 @@ public class StudentDAOImpl implements StudentDAO {
                 studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees());
 		return result;
     }
-
+   //Delete Student Details
     @Override
     public int deleteStudentDetails(int studentId) {
         String deleteQuery = "DELETE FROM Student WHERE Student_id = ?";
         int result = jdbcTemplate.update(deleteQuery, studentId);
 		return result;
     }
-
+  // Update Student Details
     @Override
     public int updateStudentDetails(StudentModel studentModel) {
-        StringBuilder updateQuery = new StringBuilder("UPDATE Student SET ");
-        List<Object> queryParams = new ArrayList<>();
-
-        // Check each parameter and update if not null
-        if (studentModel.getName() != null) {
-            updateQuery.append("Name=?, ");
-            queryParams.add(studentModel.getName());
-        }
-        if (studentModel.getRegisterNo() != null) {
-            updateQuery.append("Register_No=?, ");
-            queryParams.add(studentModel.getRegisterNo());
-        }
-        if (studentModel.getGender() != null) {
-            updateQuery.append("Gender=?, ");
-            queryParams.add(studentModel.getGender());
-        }
-        if (studentModel.getAge() != 0) {
-            updateQuery.append("Age=?, ");
-            queryParams.add(studentModel.getAge());
-        }
-        if (studentModel.getPhoneNumber() != null) {
-            updateQuery.append("PhoneNumber=?, ");
-            queryParams.add(studentModel.getPhoneNumber());
-        }
-        if (studentModel.getCurrentStatus() != null) {
-            updateQuery.append("Current_Status=?, ");
-            queryParams.add(studentModel.getCurrentStatus());
-        }
-        if (studentModel.getEmailId() != null) {
-            updateQuery.append("Email_Id=?, ");
-            queryParams.add(studentModel.getEmailId());
-        }
-        if (studentModel.getCourse() != null) {
-            updateQuery.append("Course=?, ");
-            queryParams.add(studentModel.getCourse());
-        }
-        if (studentModel.getBatch() != null) {
-            updateQuery.append("Batch=?, ");
-            queryParams.add(studentModel.getBatch());
-        }
-        if (studentModel.getFees() != 0) {
-            updateQuery.append("Fees=?, ");
-            queryParams.add(studentModel.getFees());
-        }
-
-        // Remove the last comma and space
-        updateQuery.delete(updateQuery.length() - 2, updateQuery.length());
-
-        // Add WHERE condition for Student_id
-        updateQuery.append(" WHERE Student_id=?");
-        queryParams.add(studentModel.getStudentId());
-
-        // Execute the update query
-        int rowsAffected = jdbcTemplate.update(updateQuery.toString(), queryParams.toArray());
-
-        // Return the number of rows affected
-        return rowsAffected;
+        String updateQuery = "UPDATE Student SET Name=?, Register_No=?, Gender=?, Age=?, PhoneNumber=?, Current_Status=?, Email_Id=?, Course=?, Batch=?, Fees=? WHERE Student_id=?";
+        System.out.println(studentModel);
+        int result=jdbcTemplate.update(updateQuery, studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
+                studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
+                studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees(), studentModel.getStudentId());
+		return result;
     }
 
 
@@ -110,7 +60,6 @@ public class StudentDAOImpl implements StudentDAO {
             return null;
         }
     }
-
 
     @Override
     public List<StudentModel> getAllStudentDetails() {

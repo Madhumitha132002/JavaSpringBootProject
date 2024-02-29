@@ -1,0 +1,9 @@
+package com.SpringBootProject.StudentDetails;
+
+import java.util.logging.StreamHandler;
+
+public class MyHandler extends StreamHandler{
+	
+	public void publish(int)
+
+}
