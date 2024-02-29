@@ -1,0 +1,57 @@
+package com.SpringBootProject.StudentDetails.Controller;
+
+import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Repository.IStudentDetailsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/students")
+public class StudentController {
+
+    private final IStudentDetailsRepository studentRepository;
+
+    @Autowired
+    public StudentController(IStudentDetailsRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<String> addStudent(@RequestBody StudentModel studentModel) {
+        studentRepository.addStudentDetails(studentModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Student added successfully");
+    }
+
+    @DeleteMapping("/delete/{studentId}")
+    public ResponseEntity<String> deleteStudent(@PathVariable int studentId) {
+        studentRepository.deleteStudentDetails(studentId);
+        return ResponseEntity.ok().body("Student deleted successfully");
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<String> updateStudent(@RequestBody StudentModel studentModel) {
+        studentRepository.updateStudentDetails(studentModel);
+        return ResponseEntity.ok().body("Student updated successfully");
+    }
+
+    @GetMapping("/{studentId}")
+    public ResponseEntity<StudentModel> getStudentById(@PathVariable int studentId) {
+        try {
+            StudentModel student = studentRepository.findById(studentId);
+            return ResponseEntity.ok().body(student);
+        } catch (StudentDetailsNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<StudentModel>> getAllStudents() {
+        List<StudentModel> students = studentRepository.getAllStudentDetails();
+        return ResponseEntity.ok().body(students);
+    }
+}

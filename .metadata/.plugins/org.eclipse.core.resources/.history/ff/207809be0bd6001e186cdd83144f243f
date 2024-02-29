@@ -1,0 +1,73 @@
+package com.SpringBootProject.StudentDetails.Repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+
+import java.util.List;
+
+@Repository
+public class StudentDetailsRepoImp implements IStudentDetailsRepository {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public StudentDetailsRepoImp(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public void addStudentDetails(StudentModel studentModel) {
+        String insertQuery = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(insertQuery, studentModel.getName(), studentModel.getRegister_No(), studentModel.getGender(),
+                studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrent_status(),
+                studentModel.getEmail_Id(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees());
+    }
+
+    @Override
+    public void deleteStudentDetails(int studentId) {
+        String deleteQuery = "DELETE FROM Student WHERE Student_id = ?";
+        jdbcTemplate.update(deleteQuery, studentId);
+    }
+
+    @Override
+    public void updateStudentDetails(StudentModel studentModel) {
+        String updateQuery = "UPDATE Student SET Name=?, Register_No=?, Gender=?, Age=?, Phone_Number=?, Current_Status=?, Email_Id=?, Course=?, Batch=?, Fees=? WHERE Student_id=?";
+        jdbcTemplate.update(updateQuery, studentModel.getName(), studentModel.getRegister_No(), studentModel.getGender(),
+                studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrent_status(),
+                studentModel.getEmail_Id(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees(), studentModel.getStudent_id());
+    }
+
+    @Override
+    public StudentModel findById(int studentId) throws StudentDetailsNotFoundException {
+        String selectQuery = "SELECT * FROM Student WHERE Student_id = ?";
+        try {
+            return jdbcTemplate.queryForObject(selectQuery, new Object[]{studentId}, new BeanPropertyRowMapper<>(StudentModel.class));
+        } catch (Exception e) {
+            throw new StudentDetailsNotFoundException("Student not found with ID: " + studentId);
+        }
+    }
+
+    @Override
+    public List<StudentModel> getAllStudentDetails() {
+        String selectQuery = "SELECT * FROM Student";
+        return jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class));
+    }
+
+	@Override
+	public void getStudentDetails() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public StudentModel findbyId(int Student_id) throws StudentDetailsNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+

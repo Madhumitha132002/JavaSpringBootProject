@@ -1,0 +1,52 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Repository.IStudentDetailsRepository;
+
+@Service
+public class StudentDetailsServiceImpl {
+	
+	private IStudentDetailsRepository studentdetailsrepo;
+	
+	
+    @Autowired
+	public void setStudentdetailsrepo(IStudentDetailsRepository studentdetailsrepo) {
+		this.studentdetailsrepo = studentdetailsrepo;
+	}
+
+	public StudentDetailsServiceImpl() {
+	
+	}
+
+	public void addStudentDetails(StudentModel studentmodel) {
+	    studentdetailsrepo.addStudentDetails(studentmodel);
+		
+	}
+
+
+	public void deleteStudentDetails(int student_id) {
+		studentdetailsrepo.deleteStudentDetails(student_id);
+		
+	}
+
+
+	public void updateStudentDetails(StudentModel studentModel) {
+		 studentdetailsrepo.updateStudentDetails(studentModel);
+	}
+
+	public StudentModel findById(int student_id) throws StudentDetailsNotFoundException {
+		return studentdetailsrepo.findById(student_id);
+	}
+
+	public List<StudentModel> getAllStudentDetails() {
+		return studentdetailsrepo.getAllStudentDetails();
+	
+	}
+
+}

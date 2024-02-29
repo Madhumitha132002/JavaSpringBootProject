@@ -1,0 +1,18 @@
+package com.SpringBootProject.StudentDetails.Controller;
+
+public class StudentController {
+
+	private int Student_id;
+	private String Name;
+	private String Register_No;
+	private String Gender;
+	private int Age;
+	private String PhoneNumber;
+	private String Current_status;
+	private String Email_Id;
+	private String Course;
+	private String Batch;
+	private int Fees;
+	
+	
+}

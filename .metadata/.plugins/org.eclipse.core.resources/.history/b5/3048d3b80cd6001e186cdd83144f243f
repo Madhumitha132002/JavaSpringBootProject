@@ -1,0 +1,58 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Repository.IStudentDetailsRepository;
+
+@Service
+public class StudentDetailsServiceImpl implements IStudentService {
+	
+	private IStudentDetailsRepository studentdetailsrepo;
+	
+	
+    @Autowired
+	public void setStudentdetailsrepo(IStudentDetailsRepository studentdetailsrepo) {
+		this.studentdetailsrepo = studentdetailsrepo;
+	}
+
+	public StudentDetailsServiceImpl() {
+	
+	}
+
+	@Override
+	public void addStudentDetails(StudentModel studentmodel) {
+	    studentdetailsrepo.addStudentDetails(studentmodel);
+		
+	}
+
+	@Override
+	public void deleteStudentDetails(int Register_No) {
+		studentdetailsrepo.deleteStudentDetails(Register_No);
+		
+	}
+
+
+	@Override
+	public void updateStudentDetails(StudentModel studentModel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public StudentModel findById(int student_id) throws StudentDetailsNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StudentModel> getAllStudentDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

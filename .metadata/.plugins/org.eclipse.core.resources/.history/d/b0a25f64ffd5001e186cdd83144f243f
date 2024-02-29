@@ -1,0 +1,128 @@
+package com.SpringBootProject.StudentDetails.Model;
+
+public class StudentModel {
+	
+		private int Student_id;
+		private String Name;
+		private String Register_No;
+		private String Gender;
+		private int Age;
+		private String PhoneNumber;
+		private String Current_status;
+		private String Email_Id;
+		private String Course;
+		private String Batch;
+		private int Fees;
+		
+		
+		
+		public int getStudent_id() {
+			return Student_id;
+		}
+
+		public void setStudent_id(int student_id) {
+			Student_id = student_id;
+		}
+
+		public String getName() {
+			return Name;
+		}
+
+		public void setName(String name) {
+			Name = name;
+		}
+
+		public String getRegister_No() {
+			return Register_No;
+		}
+
+		public void setRegister_No(String register_No) {
+			Register_No = register_No;
+		}
+
+		public String getGender() {
+			return Gender;
+		}
+
+		public void setGender(String gender) {
+			Gender = gender;
+		}
+
+		public int getAge() {
+			return Age;
+		}
+
+		public void setAge(int age) {
+			Age = age;
+		}
+
+		public String getPhoneNumber() {
+			return PhoneNumber;
+		}
+
+		public void setPhoneNumber(String phoneNumber) {
+			PhoneNumber = phoneNumber;
+		}
+
+		public String getCurrent_status() {
+			return Current_status;
+		}
+
+		public void setCurrent_status(String current_status) {
+			Current_status = current_status;
+		}
+
+		public String getEmail_Id() {
+			return Email_Id;
+		}
+
+		public void setEmail_Id(String email_Id) {
+			Email_Id = email_Id;
+		}
+
+		public String getCourse() {
+			return Course;
+		}
+
+		public void setCourse(String course) {
+			Course = course;
+		}
+
+		public String getBatch() {
+			return Batch;
+		}
+
+		public void setBatch(String batch) {
+			Batch = batch;
+		}
+
+		public int getFees() {
+			return Fees;
+		}
+
+		public void setFees(int fees) {
+			Fees = fees;
+		}
+
+		public StudentModel(int student_id, String name, String register_No, String gender, int age, String phoneNumber,
+				String current_status, String email_Id, String course, String batch, int fees) {
+			super();
+			Student_id = student_id;
+			Name = name;
+			Register_No = register_No;
+			Gender = gender;
+			Age = age;
+			PhoneNumber = phoneNumber;
+			Current_status = current_status;
+			Email_Id = email_Id;
+			Course = course;
+			Batch = batch;
+			Fees = fees;
+		}
+
+		public StudentModel() {
+			super();
+		}	
+
+
+}

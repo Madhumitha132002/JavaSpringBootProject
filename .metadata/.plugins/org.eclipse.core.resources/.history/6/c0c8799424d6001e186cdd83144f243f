@@ -1,0 +1,111 @@
+package com.SpringBootProject.StudentDetails.Model;
+
+public class StudentModel {
+	
+
+		private int Studentid;
+		private String Name;
+		private String RegisterNo;
+		private String Gender;
+		private int Age;
+		private String PhoneNumber;
+		private String Current_status;
+		private String EmailId;
+		private String Course;
+		private String Batch;
+		private int Fees;
+		public int getStudentid() {
+			return Studentid;
+		}
+		public void setStudentid(int studentid) {
+			Studentid = studentid;
+		}
+		public String getName() {
+			return Name;
+		}
+		public void setName(String name) {
+			Name = name;
+		}
+		public String getRegisterNo() {
+			return RegisterNo;
+		}
+		public void setRegisterNo(String registerNo) {
+			RegisterNo = registerNo;
+		}
+		public String getGender() {
+			return Gender;
+		}
+		public void setGender(String gender) {
+			Gender = gender;
+		}
+		public int getAge() {
+			return Age;
+		}
+		public void setAge(int age) {
+			Age = age;
+		}
+		public String getPhoneNumber() {
+			return PhoneNumber;
+		}
+		public void setPhoneNumber(String phoneNumber) {
+			PhoneNumber = phoneNumber;
+		}
+		public String getCurrent_status() {
+			return Current_status;
+		}
+		public void setCurrent_status(String current_status) {
+			Current_status = current_status;
+		}
+		public String getEmailId() {
+			return EmailId;
+		}
+		public void setEmailId(String emailId) {
+			EmailId = emailId;
+		}
+		public String getCourse() {
+			return Course;
+		}
+		public void setCourse(String course) {
+			Course = course;
+		}
+		public String getBatch() {
+			return Batch;
+		}
+		public void setBatch(String batch) {
+			Batch = batch;
+		}
+		public int getFees() {
+			return Fees;
+		}
+		public void setFees(int fees) {
+			Fees = fees;
+		}
+		public StudentModel(int studentid, String name, String registerNo, String gender, int age, String phoneNumber,
+				String current_status, String emailId, String course, String batch, int fees) {
+			super();
+			Studentid = studentid;
+			Name = name;
+			RegisterNo = registerNo;
+			Gender = gender;
+			Age = age;
+			PhoneNumber = phoneNumber;
+			Current_status = current_status;
+			EmailId = emailId;
+			Course = course;
+			Batch = batch;
+			Fees = fees;
+		}
+		public StudentModel() {
+			super();
+		}
+		@Override
+		public String toString() {
+			return "StudentModel [Studentid=" + Studentid + ", Name=" + Name + ", RegisterNo=" + RegisterNo
+					+ ", Gender=" + Gender + ", Age=" + Age + ", PhoneNumber=" + PhoneNumber + ", Current_status="
+					+ Current_status + ", EmailId=" + EmailId + ", Course=" + Course + ", Batch=" + Batch + ", Fees="
+					+ Fees + "]";
+		}
+		
+		
+		
+}

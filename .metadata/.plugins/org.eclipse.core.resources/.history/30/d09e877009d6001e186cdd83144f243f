@@ -1,0 +1,16 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+
+public interface IStudentService {
+	
+	void addStudentDetails(StudentModel studentmodel);
+	void deleteStudentDetails(int Student_id);
+	void updateStudentDetails(int Student_id);
+	StudentModel getbyId(int Student_id) throws StudentDetailsNotFoundException;
+	
+	
+	
+
+}
