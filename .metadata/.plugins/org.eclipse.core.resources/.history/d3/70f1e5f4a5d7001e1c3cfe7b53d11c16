@@ -1,0 +1,70 @@
+package com.SpringBootProject.StudentDetails.Repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+
+import java.util.List;
+
+
+public class StudentDAOImpl implements StudentDAO {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public StudentDAOImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public int addStudentDetails(StudentModel studentModel) {
+        String insertQuery = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+         int result=jdbcTemplate.update(insertQuery, studentModel.getStudentId(),studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
+                studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
+                studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees());
+		return result;
+    }
+
+    @Override
+    public int deleteStudentDetails(int studentId) {
+        String deleteQuery = "DELETE FROM Student WHERE Student_id = ?";
+        int result = jdbcTemplate.update(deleteQuery, studentId);
+		return result;
+    }
+
+    @Override
+  
+    	public int updateStudentDetails(StudentModel studentModel) {
+            String updateQuery = "UPDATE Student SET Name=?, Register_No=?, Gender=?, Age=?, PhoneNumber=?, Current_Status=?, Email_Id=?, Course=?, Batch=?, Fees=? WHERE Student_id=?";
+            System.out.println(studentModel);
+            int result=jdbcTemplate.update(updateQuery, studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
+                    studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
+                    studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees(), studentModel.getStudentId());
+    		return result;
+        }
+        
+
+    @Override
+    public StudentModel findById(int studentId) {
+        String selectQuery = "SELECT * FROM Student WHERE Student_id = ?";
+        List<StudentModel> students = jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class), studentId);
+        if (students.isEmpty()) {
+            System.out.println("Student not found with ID: " + studentId);
+            return null;
+        } else {
+            return students.get(0); // Assuming only one student should be found with the given ID
+        }
+    }
+
+
+
+    @Override
+    public List<StudentModel> getAllStudentDetails() {
+        String selectQuery = "SELECT * FROM Student";
+        return jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class));
+    }
+
+}

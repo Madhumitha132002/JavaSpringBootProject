@@ -1,19 +1,17 @@
 package com.SpringBootProject.StudentDetails.Repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 import com.SpringBootProject.StudentDetails.Model.StudentModel;
-
-import java.util.ArrayList;
 import java.util.List;
-
 @Repository
 public class StudentDAOImpl implements StudentDAO {
-
+	
+	public static final Logger logInfo=LoggerFactory.getLogger(StudentDAOImpl.class);
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -21,7 +19,6 @@ public class StudentDAOImpl implements StudentDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //Add Student Details
     @Override
     public int addStudentDetails(StudentModel studentModel) {
         String insertQuery = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
@@ -30,34 +27,34 @@ public class StudentDAOImpl implements StudentDAO {
                 studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees());
 		return result;
     }
-   //Delete Student Details
+
     @Override
     public int deleteStudentDetails(int studentId) {
         String deleteQuery = "DELETE FROM Student WHERE Student_id = ?";
         int result = jdbcTemplate.update(deleteQuery, studentId);
 		return result;
     }
-  // Update Student Details
+
     @Override
-    public int updateStudentDetails(StudentModel studentModel) {
-        String updateQuery = "UPDATE Student SET Name=?, Register_No=?, Gender=?, Age=?, PhoneNumber=?, Current_Status=?, Email_Id=?, Course=?, Batch=?, Fees=? WHERE Student_id=?";
-        System.out.println(studentModel);
-        int result=jdbcTemplate.update(updateQuery, studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
-                studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
-                studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees(), studentModel.getStudentId());
-		return result;
-    }
-
-
+  
+    	public int updateStudentDetails(StudentModel studentModel) {
+            String updateQuery = "UPDATE Student SET Name=?, Register_No=?, Gender=?, Age=?, PhoneNumber=?, Current_Status=?, Email_Id=?, Course=?, Batch=?, Fees=? WHERE Student_id=?";
+            System.out.println(studentModel);
+            int result=jdbcTemplate.update(updateQuery, studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
+                    studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
+                    studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees(), studentModel.getStudentId());
+    		return result;
+        }
+        
     @Override
     public StudentModel findById(int studentId) {
         String selectQuery = "SELECT * FROM Student WHERE Student_id = ?";
-        try {
-            return jdbcTemplate.queryForObject(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class), studentId);
-        } catch (EmptyResultDataAccessException e) {
-            // Handle the case where no student is found with the given ID
+        List<StudentModel> students = jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class), studentId);
+        if (students.isEmpty()) {
             System.out.println("Student not found with ID: " + studentId);
             return null;
+        } else {
+            return students.get(0); // Assuming only one student should be found with the given ID
         }
     }
 
@@ -68,4 +65,3 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
 }
-

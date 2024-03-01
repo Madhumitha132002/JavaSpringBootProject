@@ -1,0 +1,3 @@
+logging:
+level:
+ com.SpringBootProject.StudentDetails.Controller : DEBUG

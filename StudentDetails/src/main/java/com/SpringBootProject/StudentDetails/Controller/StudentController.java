@@ -1,15 +1,10 @@
 package com.SpringBootProject.StudentDetails.Controller;
-
-import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
 import com.SpringBootProject.StudentDetails.Model.StudentModel;
-import com.SpringBootProject.StudentDetails.Repository.StudentDAO;
-
+import com.SpringBootProject.StudentDetails.Service.StudentDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -18,70 +13,52 @@ import java.util.List;
 //Specifies all the request mappings in controller using this base path
 @RequestMapping("/students")
 public class StudentController {
-	
-	public static final Logger logInfo = LoggerFactory.getLogger(StudentController.class) ;
-	
+//
+	public static final Logger logInfo=LoggerFactory.getLogger(StudentController.class);
 	  @Autowired
-    private final StudentDAO studentRepository;
+    private  StudentDetailsServiceImpl studentService;
 
-  
-    public StudentController(StudentDAO studentRepository) {
-        this.studentRepository = studentRepository;
-    }
-    //To get the Student Details
-    @PostMapping("/add")
-    
-    
-    public void addStudent(@RequestBody StudentModel studentModel) {
-        
-    	studentRepository.addStudentDetails(studentModel);
-    }
-       
-
+	  @PostMapping("/add")   
+	    public ResponseEntity<String> addStudent(@RequestBody StudentModel studentModel) { 
+		  
+		  ResponseEntity<String> addStudentDetails=studentService.addStudentDetails(studentModel);
+		  logInfo.info(addStudentDetails.getBody());
+	        return addStudentDetails;
+	    }
+	 
     @DeleteMapping("/delete/{studentId}")
     public ResponseEntity<String> deleteStudent(@PathVariable int studentId) {
-        int isdeleted=studentRepository.deleteStudentDetails(studentId);
-        if(isdeleted!=0) {
-        	 return ResponseEntity.ok().body("Student Details deleted successfully");
-        }
-        else {
-        	 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("StudentDetails is not deleted");
-        }
-       
+//    	 logInfo.info("It is inside the controller");
+//    	 logInfo.warn("it has the error");
+//    	 logInfo.error("It found the error");
+//    	 logInfo.debug("It is debug Application");
+    	
+    	ResponseEntity<String> deleteStudentDetails = studentService.deleteStudentDetails(studentId);
+    	logInfo.info(deleteStudentDetails.getBody());
+    	return deleteStudentDetails; // Assuming you return the ResponseEntity further
+        
     }
 
     @PutMapping("/update")
     public ResponseEntity<String> updateStudent(@RequestBody StudentModel studentModel) {
-        int isUpdated = studentRepository.updateStudentDetails(studentModel);
-//        System.out.print(studentModel);
-        if (isUpdated!=1) {
-            return ResponseEntity.ok().body("Student updated successfully");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("StudentDetails is not found or update failed");
-        }
+    	ResponseEntity<String> updateStudentDetails=studentService.updateStudentDetails(studentModel);
+    	logInfo.info(updateStudentDetails.getBody());
+        return updateStudentDetails;    
     }
 
     @GetMapping("/{studentId}")
     public ResponseEntity<StudentModel> getStudentById(@PathVariable int studentId) {
-        try {
-            StudentModel student = studentRepository.findById(studentId);
-            return ResponseEntity.ok().body(student);
-        } catch (StudentDetailsNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
+        ResponseEntity<StudentModel> getStudentById = studentService.findById(studentId);
+        StudentModel student = getStudentById.getBody();
+        logInfo.info(""+student);
+        return getStudentById;
     }
 
     @GetMapping("/all")
-  
     public ResponseEntity<List<StudentModel>> getAllStudents() {
-    	
-    	  logInfo.info("Student info logging was Enabled");
-    	  logInfo.debug("Student info debug was enabled");
-        List<StudentModel> students = studentRepository.getAllStudentDetails();
-        if (!students.isEmpty()) {
-            return ResponseEntity.ok().body(students); // Return list of students if not empty
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Return 404 if list is empty
-        }
+    	ResponseEntity<List<StudentModel>> getAllStudentDetails=studentService.getAllStudentDetails();
+    	List<StudentModel> student=getAllStudentDetails.getBody();
+    	logInfo.info(""+student);
+        return getAllStudentDetails;
     }
 }

@@ -1,0 +1,44 @@
+package com.SpringBootProject.StudentDetails.Controller;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Service.StudentDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+//Indicate a particular class servers RESTFUL web servers
+@RestController
+//Specifies all the request mappings in controller using this base path
+@RequestMapping("/students")
+public class StudentController {
+	
+	  @Autowired
+    private  StudentDetailsServiceImpl studentService;
+
+  
+	  @PostMapping("/add")
+	    public ResponseEntity<String> addStudent(@RequestBody StudentModel studentModel) {
+	        return studentService.addStudentDetails(studentModel);
+	    }
+	 
+    @DeleteMapping("/delete/{studentId}")
+    public ResponseEntity<String> deleteStudent(@PathVariable int studentId) {
+         return studentService.deleteStudentDetails(studentId);
+        
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<String> updateStudent(@RequestBody StudentModel studentModel) {
+        return studentService.updateStudentDetails(studentModel);      
+    }
+
+    @GetMapping("/{studentId}")
+    public ResponseEntity<StudentModel> getStudentById(@PathVariable int studentId) {
+        return studentService.findById(studentId);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<StudentModel>> getAllStudents() {
+        return studentService.getAllStudentDetails();
+    }
+}

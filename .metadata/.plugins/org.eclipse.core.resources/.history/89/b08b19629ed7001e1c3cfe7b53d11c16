@@ -1,0 +1,91 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.SpringBootProject.StudentDetails.Exception.StudentDetailsNotFoundException;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Repository.StudentDAO;
+
+@Service
+public class StudentDetailsServiceImpl {
+    
+    private StudentDAO studentDetailsRepo;
+
+    @Autowired
+    public void setStudentDetailsRepo(StudentDAO studentDetailsRepo) {
+        this.studentDetailsRepo = studentDetailsRepo;
+    }
+
+    public ResponseEntity<String> addStudentDetails(StudentModel studentModel) {
+        if (isEmpty(studentModel.getName()) ||
+                isEmpty(studentModel.getRegisterNo()) ||
+                isEmpty(studentModel.getGender()) ||
+                isEmpty(studentModel.getPhoneNumber()) ||
+                isEmpty(studentModel.getCurrentStatus()) ||
+                isEmpty(studentModel.getEmailId()) ||
+                isEmpty(studentModel.getCourse()) ||
+                isEmpty(studentModel.getBatch())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("All fields are Required");
+        }
+
+        int result = studentDetailsRepo.addStudentDetails(studentModel);
+
+        return ResponseEntity.status(result > 0 ? HttpStatus.CREATED : HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(result > 0 ? "Student inserted successfully" : "Student Record is not inserted");
+    }
+
+    // Helper method to check if a value is empty (null or empty string)
+    private boolean isEmpty(String value) {
+        return value == null || value.isEmpty();
+    }
+   
+
+    public ResponseEntity<String> deleteStudentDetails(int studentId) {
+        int result = studentDetailsRepo.deleteStudentDetails(studentId);
+        if(result!=0) {
+       	 return ResponseEntity.ok().body("Student Details deleted successfully");
+       }
+       else {
+       	 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("StudentDetails is not deleted");
+       }
+      
+    }
+
+    public int updateStudentDetails(StudentModel studentModel) {
+    	 if (isEmpty(studentModel.getName()) ||
+                 isEmpty(studentModel.getRegisterNo()) ||
+                 isEmpty(studentModel.getGender()) ||
+                 isEmpty(studentModel.getPhoneNumber()) ||
+                 isEmpty(studentModel.getCurrentStatus()) ||
+                 isEmpty(studentModel.getEmailId()) ||
+                 isEmpty(studentModel.getCourse()) ||
+                 isEmpty(studentModel.getBatch())) {
+             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("All fields are Required");
+         }
+
+         int result = studentDetailsRepo.upadateStudentDetails(studentModel);
+
+         return ResponseEntity.status(result > 0 ? HttpStatus.CREATED : HttpStatus.INTERNAL_SERVER_ERROR)
+                 .body(result > 0 ? "Student Updates successfully" : "Student Record is not Updated");
+     }
+
+    public StudentModel findById(int studentId) throws StudentDetailsNotFoundException {
+        StudentModel student = studentDetailsRepo.findById(studentId);
+        if (student == null) {
+            throw new StudentDetailsNotFoundException("Student with ID " + studentId + " not found");
+        }
+        return student;
+    }
+
+    public List<StudentModel> getAllStudentDetails() {
+        return studentDetailsRepo.getAllStudentDetails();
+    }
+
+
+   
+}
