@@ -1,0 +1,17 @@
+
+package com.SpringBootProject.StudentDetails.Repository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+public class LoggerUtility {
+    private static final Logger logger = LoggerFactory.getLogger(LoggerUtility.class);
+
+    public static void logError(String message, Exception exception) {
+        logger.error(message, exception);
+    }
+
+    public static void logSuccess(String message) {
+        logger.info(message);
+    }
+}

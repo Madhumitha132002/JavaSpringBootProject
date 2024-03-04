@@ -21,7 +21,12 @@ public class StudentDetailsServiceImpl {
         this.studentDetailsRepo = studentDetailsRepo;
     }
 
+ // In StudentDetailsServiceImpl.java
     public ResponseEntity<String> addStudentDetails(StudentModel studentModel) {
+        // Add logging to track the input student model
+        logInfo.info("Received student details: {}", studentModel);
+
+        // Validate the studentModel
         if (isEmpty(studentModel.getName()) ||
                 isEmpty(studentModel.getRegisterNo()) ||
                 isEmpty(studentModel.getGender()) ||
@@ -30,20 +35,19 @@ public class StudentDetailsServiceImpl {
                 isEmpty(studentModel.getEmailId()) ||
                 isEmpty(studentModel.getCourse()) ||
                 isEmpty(studentModel.getBatch())) {
-        	logInfo.warn("All fields are required{}");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("All fields are Required");
+            logInfo.warn("All fields are required");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("All fields are required");
         }
 
+        // Process the studentModel and return appropriate response
         int result = studentDetailsRepo.addStudentDetails(studentModel);
-        
-        if(result > 0) {
-        	logInfo.info("Student inserted successfully");
+        if (result > 0) {
+            logInfo.info("Student inserted successfully");
+            return ResponseEntity.status(HttpStatus.CREATED).body("Student inserted successfully");
+        } else {
+            logInfo.error("Student record is not inserted");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Student record is not inserted");
         }
-        else {
-        	logInfo.error("Student Record is not inserted");
-        }
-        return ResponseEntity.status(result > 0 ? HttpStatus.CREATED : HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(result > 0 ? "Student inserted successfully" : "Student Record is not inserted");
     }
 
     // Helper method to check if a value is empty (null or empty string)
@@ -89,14 +93,13 @@ public class StudentDetailsServiceImpl {
          return ResponseEntity.status(result > 0 ? HttpStatus.CREATED : HttpStatus.INTERNAL_SERVER_ERROR)
                  .body(result > 0 ? "Student Updates successfully" : "Student Record is not Updated");
      }
- // Find the user by StudentId
     public ResponseEntity<StudentModel> findById(int studentId) {
         StudentModel student = studentDetailsRepo.findById(studentId);
         if (student == null) {
-        	logInfo.error("Record not found");
+            logInfo.error("Record not found");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        logInfo.info("Details Retrived Successfully");
+        logInfo.info("Details retrieved successfully");
         return ResponseEntity.ok().body(student);
     }
 

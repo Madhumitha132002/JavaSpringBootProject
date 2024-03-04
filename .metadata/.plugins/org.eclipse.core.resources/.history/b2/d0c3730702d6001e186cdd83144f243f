@@ -1,9 +1,0 @@
-package com.SpringBootProject.StudentDetails.Service;
-
-public class StudentDetailsServiceImpl {
-
-	public StudentDetailsServiceImpl() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

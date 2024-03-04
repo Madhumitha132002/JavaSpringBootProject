@@ -1,0 +1,5 @@
+package com.SpringBootProject.StudentDetails.Repository;
+
+public class LoggerUtility {
+
+}

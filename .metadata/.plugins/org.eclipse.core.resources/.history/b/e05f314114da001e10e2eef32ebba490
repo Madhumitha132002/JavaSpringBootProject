@@ -1,0 +1,13 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import com.SpringBootProject.StudentDetails.Repository.StudentDAOImpl;
+
+public class StudentServiceTest {
+	
+//	lets create the reference variable
+	
+	private StudentDetailsServiceImpl studentservice;
+	
+	private StudentDAOImpl studentrepository;
+
+}

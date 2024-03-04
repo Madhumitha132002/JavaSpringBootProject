@@ -1,0 +1,44 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import static org.junit.jupiter.api.Assertions.*; // Import necessary assertion methods
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Repository.StudentDAOImpl;
+
+public class StudentServiceTest {
+    
+    // Reference variables should not be annotated
+    private StudentDetailsServiceImpl studentservice;
+    private StudentDAOImpl studentrepository;
+
+    @Test
+    @DisplayName("Should add the records to the database")
+    void addStudentDetails() {
+        StudentModel student = new StudentModel();
+        student.setName("Gugan");
+        student.setRegisterNo("675");
+        student.setGender("Male");
+        student.setAge(23);
+        student.setPhoneNumber("8098161001");
+        student.setCurrentStatus("Undergoing");
+        student.setEmailId("Gugan@gmail.com");
+        student.setCourse("MCA");
+        student.setFees(19000);
+
+        when(studentrepository.addStudentDetails(any(StudentModel.class))).thenReturn(1);
+
+        ResponseEntity<String> responseEntity = studentservice.addStudentDetails(student);
+        assertNotNull(responseEntity);
+
+        // Verify the response message
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+        assertEquals("Student inserted successfully", responseEntity.getBody());
+    }
+}

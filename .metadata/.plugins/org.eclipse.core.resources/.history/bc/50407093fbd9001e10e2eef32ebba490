@@ -1,0 +1,5 @@
+package com.SpingBootProject.Config;
+
+public class OpenApiConfig {
+
+}

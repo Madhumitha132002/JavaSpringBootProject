@@ -1,0 +1,3 @@
+2024-03-04 11:54:04,360 [http-nio-8080-exec-2] ERROR c.S.S.Repository.StudentDAOImpl - Error occurred while finding student by ID: PreparedStatementCallback; bad SQL grammar [SELECT * FROM Students WHERE Student_id = ?]
+2024-03-04 17:58:57,382 [http-nio-8080-exec-1] ERROR c.S.S.Repository.StudentDAOImpl - Error occurred while adding student details: PreparedStatementCallback; SQL [INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)]; Duplicate entry '38' for key 'Register_No'
+2024-03-04 18:04:11,765 [http-nio-8080-exec-8] ERROR c.S.S.Repository.StudentDAOImpl - Error occurred while adding student details: PreparedStatementCallback; SQL [INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)]; Duplicate entry '98' for key 'Register_No'

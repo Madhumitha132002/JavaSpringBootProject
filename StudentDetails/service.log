@@ -1,0 +1,79 @@
+2024-03-04 11:23:27,739 [http-nio-8080-exec-2] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 11:52:42,698 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 11:53:09,868 [http-nio-8080-exec-3] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 11:54:04,360 [http-nio-8080-exec-2] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-04 12:55:45,393 [http-nio-8080-exec-10] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 13:56:16,568 [http-nio-8080-exec-7] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 14:04:20,134 [http-nio-8080-exec-6] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 14:08:04,771 [http-nio-8080-exec-2] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 17:55:17,568 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required{}
+2024-03-04 17:56:30,808 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=null, fees=19000]
+2024-03-04 17:56:30,839 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 17:58:57,382 [http-nio-8080-exec-1] ERROR c.S.S.S.StudentDetailsServiceImpl - Student Record is not inserted
+2024-03-04 17:59:50,790 [http-nio-8080-exec-4] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 18:00:09,527 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=null, fees=19000]
+2024-03-04 18:00:09,550 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 18:02:21,604 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=null, fees=19000]
+2024-03-04 18:02:21,627 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 18:04:11,766 [http-nio-8080-exec-8] ERROR c.S.S.S.StudentDetailsServiceImpl - Student Record is not inserted
+2024-03-04 18:04:42,107 [http-nio-8080-exec-10] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 18:05:23,622 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=null, fees=19000]
+2024-03-04 18:05:23,645 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 18:07:20,227 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=null, fees=19000]
+2024-03-04 18:07:20,256 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 18:09:25,821 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=null, fees=19000]
+2024-03-04 18:09:25,841 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 18:10:01,093 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=null, fees=19000]
+2024-03-04 18:10:01,119 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 18:11:02,607 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=null, registerNo=null, gender=null, age=0, phoneNumber=null, currentStatus=null, emailId=null, course=null, batch=null, fees=0]
+2024-03-04 18:11:02,628 [main] WARN  c.S.S.S.StudentDetailsServiceImpl - All fields are required
+2024-03-04 18:14:35,883 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 18:14:35,910 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 18:39:31,598 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 18:39:31,637 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 18:41:34,329 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 18:41:34,364 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 18:42:17,362 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 18:42:17,401 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 18:42:17,489 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 18:46:46,160 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 18:46:46,197 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 18:46:46,289 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 18:46:46,300 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 19:01:06,154 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 19:01:06,197 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 19:01:06,275 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 19:01:06,283 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-04 19:01:06,305 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 19:04:03,797 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 19:04:03,835 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 19:04:03,922 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 19:04:03,931 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-04 19:04:03,956 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 19:05:01,346 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 19:05:01,387 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 19:05:01,466 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 19:05:01,473 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-04 19:05:01,487 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 19:05:34,142 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 19:07:34,418 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 19:07:34,452 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 19:07:34,515 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 19:07:34,524 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-04 19:07:34,549 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 19:08:19,040 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 19:08:19,079 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 19:08:19,162 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 19:08:19,172 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-04 19:08:19,187 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 19:17:52,438 [http-nio-8080-exec-5] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 19:20:42,726 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 19:20:42,768 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 19:20:42,873 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 19:20:42,884 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 19:20:42,893 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-04 19:22:22,761 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=675, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-04 19:22:22,801 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-04 19:22:22,887 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-04 19:22:22,896 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-04 19:22:22,910 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully

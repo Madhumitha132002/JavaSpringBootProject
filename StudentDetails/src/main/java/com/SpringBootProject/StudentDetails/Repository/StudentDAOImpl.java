@@ -8,10 +8,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import com.SpringBootProject.StudentDetails.Model.StudentModel;
 import java.util.List;
+
 @Repository
 public class StudentDAOImpl implements StudentDAO {
-	
-	public static final Logger logInfo=LoggerFactory.getLogger(StudentDAOImpl.class);
+
+    private static final Logger logger = LoggerFactory.getLogger(StudentDAOImpl.class);
+
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -21,47 +23,68 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public int addStudentDetails(StudentModel studentModel) {
-        String insertQuery = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
-         int result=jdbcTemplate.update(insertQuery, studentModel.getStudentId(),studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
-                studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
-                studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees());
-		return result;
+        try {
+            String insertQuery = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+            return jdbcTemplate.update(insertQuery, studentModel.getStudentId(), studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
+                    studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
+                    studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees());
+        } catch (Exception e) {
+            logger.error("Error occurred while adding student details: {}", e.getMessage());
+            return -1; // Indicate failure
+        }
     }
 
     @Override
     public int deleteStudentDetails(int studentId) {
-        String deleteQuery = "DELETE FROM Student WHERE Student_id = ?";
-        int result = jdbcTemplate.update(deleteQuery, studentId);
-		return result;
+        try {
+            String deleteQuery = "DELETE FROM Student WHERE Student_id = ?";
+            return jdbcTemplate.update(deleteQuery, studentId);
+        } catch (Exception e) {
+            logger.error("Error occurred while deleting student details: {}", e.getMessage());
+            return -1; // Indicate failure
+        }
     }
 
     @Override
-  
-    	public int updateStudentDetails(StudentModel studentModel) {
+    public int updateStudentDetails(StudentModel studentModel) {
+        try {
             String updateQuery = "UPDATE Student SET Name=?, Register_No=?, Gender=?, Age=?, PhoneNumber=?, Current_Status=?, Email_Id=?, Course=?, Batch=?, Fees=? WHERE Student_id=?";
-            System.out.println(studentModel);
-            int result=jdbcTemplate.update(updateQuery, studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
+            return jdbcTemplate.update(updateQuery, studentModel.getName(), studentModel.getRegisterNo(), studentModel.getGender(),
                     studentModel.getAge(), studentModel.getPhoneNumber(), studentModel.getCurrentStatus(),
                     studentModel.getEmailId(), studentModel.getCourse(), studentModel.getBatch(), studentModel.getFees(), studentModel.getStudentId());
-    		return result;
+        } catch (Exception e) {
+            logger.error("Error occurred while updating student details: {}", e.getMessage());
+            return -1; // Indicate failure
         }
-        
+    }
+
     @Override
     public StudentModel findById(int studentId) {
-        String selectQuery = "SELECT * FROM Student WHERE Student_id = ?";
-        List<StudentModel> students = jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class), studentId);
-        if (students.isEmpty()) {
-            System.out.println("Student not found with ID: " + studentId);
+        try {
+            String selectQuery = "SELECT * FROM Student WHERE Student_id = ?";
+            List<StudentModel> students = jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class), studentId);
+            if (students.isEmpty()) {
+                logger.info("Student not found with ID: {}", studentId);
+                return null;
+            } else {
+                return students.get(0); // Assuming only one student should be found with the given ID
+            }
+        } catch (Exception e) {
+            logger.error("Error occurred while finding student by ID: {}", e.getMessage());
             return null;
-        } else {
-            return students.get(0); // Assuming only one student should be found with the given ID
         }
     }
 
     @Override
     public List<StudentModel> getAllStudentDetails() {
-        String selectQuery = "SELECT * FROM Student";
-        return jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class));
+        try {
+            String selectQuery = "SELECT * FROM Student";
+            return jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class));
+        } catch (Exception e) {
+            logger.error("Error occurred while retrieving all student details: {}", e.getMessage());
+            return null;
+        }
     }
 
+	
 }
