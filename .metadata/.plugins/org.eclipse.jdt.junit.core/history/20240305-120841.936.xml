@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceTest" project="StudentDetails" tests="5" started="5" failures="0" errors="1" ignored="0">
+  <testsuite name="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="1.298" displayname="StudentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]">
+    <testcase name="addStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="1.258" displayname="Should add the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:addStudentDetails()]"/>
+    <testcase name="updateStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.006" displayname="Should update the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:updateStudentDetails()]"/>
+    <testcase name="findById" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.007" displayname="It finds the student by ID" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:findById()]"/>
+    <testcase name="getAllStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.012" displayname="It Fetch all the records from the datatable" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:getAllStudentDetails()]">
+      <error>java.lang.Error: Unresolved compilation problem: 
+	The method thenReturn(List&lt;StudentModel&gt;) in the type OngoingStubbing&lt;List&lt;StudentModel&gt;&gt; is not applicable for the arguments ()
+
+	at com.SpringBootProject.StudentDetails.Service.StudentServiceTest.getAllStudentDetails(StudentServiceTest.java:110)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+</error>
+    </testcase>
+    <testcase name="deleteStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.006" displayname="Should delete the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:deleteStudentDetails()]"/>
+  </testsuite>
+</testrun>

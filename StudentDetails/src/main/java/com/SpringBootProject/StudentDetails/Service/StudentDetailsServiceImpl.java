@@ -111,8 +111,5 @@ public class StudentDetailsServiceImpl {
         }
         logInfo.info("Details Retrived Successfully");
         return ResponseEntity.ok().body(students);
-    }
-
-
-   
+    }  
 }

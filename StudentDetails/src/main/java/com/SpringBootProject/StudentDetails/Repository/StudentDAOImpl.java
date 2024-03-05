@@ -62,6 +62,7 @@ public class StudentDAOImpl implements StudentDAO {
     public StudentModel findById(int studentId) {
         try {
             String selectQuery = "SELECT * FROM Student WHERE Student_id = ?";
+            //simplifies this mapping process by automatically mapping columns in the ResultSet to properties of a JavaBean class
             List<StudentModel> students = jdbcTemplate.query(selectQuery, new BeanPropertyRowMapper<>(StudentModel.class), studentId);
             if (students.isEmpty()) {
                 logger.info("Student not found with ID: {}", studentId);

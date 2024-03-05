@@ -21,7 +21,7 @@
     <properties>
         <java.version>17</java.version>
     </properties>
-    
+    <!-- Contruct the class path to bulid the process-->
     <dependencies>
         <!-- Spring Boot Starter JDBC -->
         <dependency>
@@ -35,12 +35,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        
+        
      <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.28</version> <!-- Specify the desired version here -->
     <scope>runtime</scope>
     </dependency>
+    <!-- It supports library -->
      <!-- Spring Boot OpenApi -->
     <dependency>
     <groupId>org.springdoc</groupId>

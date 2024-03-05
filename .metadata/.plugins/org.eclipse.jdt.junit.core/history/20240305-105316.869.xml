@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceTest" project="StudentDetails" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="1.283" displayname="StudentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]">
+    <testcase name="addStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="1.25" displayname="Should add the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:addStudentDetails()]"/>
+    <testcase name="updateStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.007" displayname="Should update the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:updateStudentDetails()]"/>
+    <testcase name="getAllStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.011" displayname="It Fetch all the records from the datatable" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:getAllStudentDetails()]"/>
+    <testcase name="deleteStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.006" displayname="Should delete the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:deleteStudentDetails()]"/>
+  </testsuite>
+</testrun>

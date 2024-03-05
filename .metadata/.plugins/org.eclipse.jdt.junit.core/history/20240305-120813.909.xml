@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceTest" project="StudentDetails" tests="5" started="5" failures="1" errors="0" ignored="0">
+  <testsuite name="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="1.353" displayname="StudentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]">
+    <testcase name="addStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="1.308" displayname="Should add the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:addStudentDetails()]"/>
+    <testcase name="updateStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.02" displayname="Should update the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:updateStudentDetails()]">
+      <failure>
+        <expected>201 CREATED</expected>
+        <actual>500 INTERNAL_SERVER_ERROR</actual>
+        org.opentest4j.AssertionFailedError: expected: &lt;201 CREATED&gt; but was: &lt;500 INTERNAL_SERVER_ERROR&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.SpringBootProject.StudentDetails.Service.StudentServiceTest.updateStudentDetails(StudentServiceTest.java:98)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+
+      </failure>
+    </testcase>
+    <testcase name="findById" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.007" displayname="It finds the student by ID" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:findById()]"/>
+    <testcase name="getAllStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.005" displayname="It Fetch all the records from the datatable" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:getAllStudentDetails()]"/>
+    <testcase name="deleteStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.004" displayname="Should delete the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:deleteStudentDetails()]"/>
+  </testsuite>
+</testrun>
