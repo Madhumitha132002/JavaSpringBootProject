@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceTest" project="StudentDetails" tests="2" started="2" failures="1" errors="0" ignored="0">
+  <testsuite name="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.662" displayname="StudentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]">
+    <testcase name="updateStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.621" displayname="Should update the Student Details" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:updateStudentDetails()]"/>
+    <testcase name="GetAllStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.034" displayname="Fetched All Student Details" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:GetAllStudentDetails()]">
+      <failure>
+        <expected>200</expected>
+        <actual>404</actual>
+        org.opentest4j.AssertionFailedError: expected: &lt;200&gt; but was: &lt;404&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at com.SpringBootProject.StudentDetails.Service.StudentServiceTest.GetAllStudentDetails(StudentServiceTest.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+
+      </failure>
+    </testcase>
+  </testsuite>
+</testrun>

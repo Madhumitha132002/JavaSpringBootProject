@@ -10,7 +10,10 @@ public interface StudentDAO {
 	int deleteStudentDetails(int Student_id);
 	int updateStudentDetails(StudentModel studentModel);
 	StudentModel findById(int student_id);
-	List<StudentModel> getAllStudentDetails();
+	static List<StudentModel> getAllStudentDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 

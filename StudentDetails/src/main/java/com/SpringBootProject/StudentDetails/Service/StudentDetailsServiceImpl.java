@@ -1,7 +1,6 @@
 package com.SpringBootProject.StudentDetails.Service;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,12 +103,13 @@ public class StudentDetailsServiceImpl {
     }
 
     public ResponseEntity<List<StudentModel>> getAllStudentDetails() {
-        List<StudentModel> students = studentDetailsRepo.getAllStudentDetails();
-        if (students.isEmpty()) {
-        	logInfo.error("Record not found");
+        List<StudentModel> students = StudentDAO.getAllStudentDetails();
+        if (students == null || students.isEmpty()) {
+            logInfo.error("Record not found");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         logInfo.info("Details Retrived Successfully");
         return ResponseEntity.ok().body(students);
-    }  
+    }
+ 
 }

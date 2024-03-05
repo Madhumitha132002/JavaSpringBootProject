@@ -1,0 +1,136 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Repository.StudentDAOImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class StudentServiceTest {
+    
+    @Autowired
+    private MockMvc mockMvc;
+    
+    @InjectMocks
+    private StudentDetailsServiceImpl studentservice;
+    
+    @Mock
+    private StudentDAOImpl studentrepository;
+//
+//    @Test
+//    @DisplayName("Should add the records to the database")
+    void addStudentDetails() throws Exception {
+        // Create a sample student model
+        StudentModel student = new StudentModel();
+        student.setName("Gugan");
+        student.setRegisterNo("679");
+        student.setGender("Male");
+        student.setAge(23);
+        student.setPhoneNumber("8098161001");
+        student.setCurrentStatus("Undergoing");
+        student.setEmailId("Gugan@gmail.com");
+        student.setCourse("MCA");
+        student.setBatch("set89");
+        student.setFees(19000);
+
+        // Perform POST request using MockMvc
+        MvcResult result = mockMvc.perform(post("/students/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(student)))
+                .andReturn();
+        // Extract and print the status code
+        int statusCode = result.getResponse().getStatus();
+  
+        // Assert the status code
+        assertEquals(HttpStatus.CREATED.value(), statusCode);   
+    }
+//    @Test
+//    @DisplayName("Should delete the records from database")
+    void deleteStudentDetails() throws Exception{
+        MvcResult result = mockMvc.perform(delete("/students/delete/{id}",80)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"id\": 80}")
+                .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        
+        int statusCode = result.getResponse().getStatus();
+        assertEquals(HttpStatus.OK.value(), statusCode);  
+    }
+    @Test
+    @DisplayName("Should update the Student Details")
+    void updateStudentDetails() throws Exception {
+        // Create a sample student model
+        StudentModel student = new StudentModel();
+        student.setStudentId(82);
+        student.setName("Gugan");
+        student.setRegisterNo("679");
+        student.setGender("Male");
+        student.setAge(23);
+        student.setPhoneNumber("8098161001");
+        student.setCurrentStatus("Completed");
+        student.setEmailId("Gugan@gmail.com");
+        student.setCourse("MCA");
+        student.setBatch("set89");
+        student.setFees(19000);
+
+        // Perform POST request using MockMvc
+        MvcResult result = mockMvc.perform(put("/students/update")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(student)))
+                .andReturn();
+
+        // Extract and print the status code
+        int statusCode = result.getResponse().getStatus();
+   
+        // Assert the status code
+        assertEquals(HttpStatus.CREATED.value(), statusCode);  
+    }
+    @Test
+    @DisplayName("Fetched All Student Details")
+    void testGetAllStudentDetails() throws Exception {
+        // Arrange
+        List<StudentModel> mockStudentList = new ArrayList<>();
+        mockStudentList.add(new StudentModel(/* provide necessary constructor arguments */));
+        
+        // Mocking repository behavior
+        when(studentDetailsRepo.getAllStudentDetails()).thenReturn(mockStudentList);
+
+        // Act
+        MvcResult result = mockMvc.perform(get("/students/all"))
+            .andExpect(status().isOk())
+            .andReturn();
+        
+        // Assert
+        // You can add further assertions on the result if needed
+        // For example, you can verify the response content
+        // String responseBody = result.getResponse().getContentAsString();
+        // Assertions.assertTrue(responseBody.contains("expected content"));
+    }
+    private String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

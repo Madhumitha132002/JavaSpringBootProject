@@ -1,0 +1,149 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.SpringBootProject.StudentDetails.Repository.StudentDAOImpl;
+
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class StudentServiceTest {
+    
+    @Autowired
+    private MockMvc mockMvc;
+    
+    @InjectMocks
+    private StudentDetailsServiceImpl studentservice;
+    
+    @Mock
+    private StudentDAOImpl studentrepository;
+    
+    @Test
+    @DisplayName("Should add the records to the database")
+    void addStudentDetails() throws Exception {
+        // Create a sample student model
+        StudentModel student = new StudentModel();
+        student.setName("Gugan");
+        student.setRegisterNo("675");
+        student.setGender("Male");
+        student.setAge(23);
+        student.setPhoneNumber("8098161001");
+        student.setCurrentStatus("Undergoing");
+        student.setEmailId("Gugan@gmail.com");
+        student.setCourse("MCA");
+        student.setBatch("set89");
+        student.setFees(19000);
+     
+        // Mock the behavior of studentrepository
+        when(studentrepository.addStudentDetails(any(StudentModel.class))).thenReturn(1);
+        
+        // Perform POST request using MockMvc
+        mockMvc.perform(post("/addStudent")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(student)))
+                .andExpect(status().isCreated())
+                .andExpect(content().string("Student inserted successfully"));
+    }
+    
+    @Test
+    @DisplayName("Should delete the records to the database")
+    void deleteStudentDetails() throws Exception {
+        // Mocking the behavior of studentrepository
+        when(studentrepository.deleteStudentDetails(any(int.class))).thenReturn(1);
+        
+        // Perform DELETE request using MockMvc
+        mockMvc.perform(delete("/deleteStudent/{id}", 25))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Student Details deleted successfully"));
+    }
+    
+    @Test
+    @DisplayName("Should update the records to the database")
+    void updateStudentDetails() throws Exception {
+        // Create a sample student model
+        StudentModel student = new StudentModel();
+        student.setName("Gugan");
+        student.setRegisterNo("675");
+        student.setGender("Male");
+        student.setAge(23);
+        student.setPhoneNumber("8098161001");
+        student.setCurrentStatus("Completed");
+        student.setEmailId("Gugan@gmail.com");
+        student.setCourse("MCA");
+        student.setBatch("set89");
+        student.setFees(29000);
+     
+        // Mock the behavior of studentrepository
+        when(studentrepository.updateStudentDetails(any(StudentModel.class))).thenReturn(1);
+        
+        // Perform PUT request using MockMvc
+        mockMvc.perform(put("/updateStudent")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(student)))
+                .andExpect(status().isCreated())
+                .andExpect(content().string("Student Updates successfully"));
+    }
+    
+    @Test
+    @DisplayName("It Fetch all the records from the datatable")
+    void getAllStudentDetails() throws Exception {
+        // Stubbing the behavior of studentRepository
+        List<StudentModel> studentList = new ArrayList<>();
+        StudentModel studentmodel=new StudentModel();
+        studentList.add(studentmodel);
+        
+        when(studentrepository.getAllStudentDetails()).thenReturn(studentList);
+        
+        // Perform GET request using MockMvc
+        mockMvc.perform(get("/getAllStudents"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.size()").value(1));
+    }
+    
+    @Test
+    @DisplayName("It finds the student by ID")
+    void findById() throws Exception {
+        // Create a mock StudentModel object
+        StudentModel studentmodel = new StudentModel();
+        studentmodel.setStudentId(50); // Set the ID of the mock student
+        
+        // Stub the behavior of studentrepository to return the mock student
+        when(studentrepository.findById(50)).thenReturn(studentmodel);
+        
+        // Perform GET request using MockMvc
+        mockMvc.perform(get("/getStudentById/{id}", 50))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.studentId").value(50)); // Assuming the ID of the returned student matches the ID used in the test
+    }
+    
+    // Helper method to convert object to JSON string
+    private static String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

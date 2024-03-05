@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceTest" project="StudentDetails" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.512" displayname="StudentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]">
+    <testcase name="updateStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.512" displayname="Should update the Student Details" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:updateStudentDetails()]"/>
+  </testsuite>
+</testrun>

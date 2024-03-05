@@ -76,7 +76,6 @@ public class StudentDAOImpl implements StudentDAO {
         }
     }
 
-    @Override
     public List<StudentModel> getAllStudentDetails() {
         try {
             String selectQuery = "SELECT * FROM Student";

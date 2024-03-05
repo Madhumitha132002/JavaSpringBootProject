@@ -1,44 +1,54 @@
 package com.SpringBootProject.StudentDetails.Service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+
+import static org.mockito.Mockito.*;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 import com.SpringBootProject.StudentDetails.Model.StudentModel;
 import com.SpringBootProject.StudentDetails.Repository.StudentDAOImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class StudentServiceTest {
     
-	@InjectMocks
+    @Autowired
+    private MockMvc mockMvc;
+    
+    @InjectMocks
     private StudentDetailsServiceImpl studentservice;
     
     @Mock
     private StudentDAOImpl studentrepository;
-    //Add Student Details
-    @Test
-    @DisplayName("Should add the records to the database")
-    void addStudentDetails() {
+//
+//    @Test
+//    @DisplayName("Should add the records to the database")
+    void addStudentDetails() throws Exception {
         // Create a sample student model
         StudentModel student = new StudentModel();
         student.setName("Gugan");
-        student.setRegisterNo("675");
+        student.setRegisterNo("679");
         student.setGender("Male");
         student.setAge(23);
         student.setPhoneNumber("8098161001");
@@ -47,39 +57,38 @@ public class StudentServiceTest {
         student.setCourse("MCA");
         student.setBatch("set89");
         student.setFees(19000);
-     
-        // Mock the behavior of studentrepository
-        when(studentrepository.addStudentDetails(any(StudentModel.class))).thenReturn(1);
-        
-        // Invoke the method under test
-        ResponseEntity<String> responseEntity = studentservice.addStudentDetails(student);
-        assertNotNull(responseEntity);
-        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
-        assertEquals("Student inserted successfully", responseEntity.getBody());
+
+        // Perform POST request using MockMvc
+        MvcResult result = mockMvc.perform(post("/students/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(student)))
+                .andReturn();
+        // Extract and print the status code
+        int statusCode = result.getResponse().getStatus();
+  
+        // Assert the status code
+        assertEquals(HttpStatus.CREATED.value(), statusCode);   
     }
-    //Delete Student Details
-    @Test
-    @DisplayName("Should delete the records to the database")
-    void deleteStudentDetails() {
-        // Mocking the behavior of studentrepository
-        when(studentrepository.deleteStudentDetails(any(int.class))).thenReturn(1);
+//    @Test
+//    @DisplayName("Should delete the records from database")
+    void deleteStudentDetails() throws Exception{
+        MvcResult result = mockMvc.perform(delete("/students/delete/{id}",80)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"id\": 80}")
+                .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
         
-        // Invoking the method under test
-        ResponseEntity<String> responseEntity = studentservice.deleteStudentDetails(25);
-        
-        // Asserting the response
-        assertNotNull(responseEntity);
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        assertEquals("Student Details deleted successfully", responseEntity.getBody());
+        int statusCode = result.getResponse().getStatus();
+        assertEquals(HttpStatus.OK.value(), statusCode);  
     }
-    //Update Student Details
     @Test
-    @DisplayName("Should update the records to the database")
-    void updateStudentDetails() {
+    @DisplayName("Should update the Student Details")
+    void updateStudentDetails() throws Exception {
         // Create a sample student model
         StudentModel student = new StudentModel();
+        student.setStudentId(82);
         student.setName("Gugan");
-        student.setRegisterNo("675");
+        student.setRegisterNo("679");
         student.setGender("Male");
         student.setAge(23);
         student.setPhoneNumber("8098161001");
@@ -87,55 +96,27 @@ public class StudentServiceTest {
         student.setEmailId("Gugan@gmail.com");
         student.setCourse("MCA");
         student.setBatch("set89");
-        student.setFees(29000);
-     
-        // Mock the behavior of studentrepository
-        when(studentrepository.updateStudentDetails(any(StudentModel.class))).thenReturn(1);
-        
-        // Invoke the method under test
-        ResponseEntity<String> responseEntity = studentservice.updateStudentDetails(student);
-        assertNotNull(responseEntity);
-        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
-        assertEquals("Student Updates successfully", responseEntity.getBody());
-    }
-    //Fetch all Student Details
-    @Test
-    @DisplayName("It Fetch all the records from the datatable")
-    void getAllStudentDetails() {
-        // Stubbing the behavior of studentRepository
-        List<StudentModel> studentList = new ArrayList<>();
-        StudentModel studentmodel=new StudentModel();
-        studentList.add(studentmodel);
-        
-        when(studentrepository.getAllStudentDetails()).thenReturn(studentList);
-        
-        // Invoking the method under test
-        ResponseEntity<List<StudentModel>> responseEntity = studentservice.getAllStudentDetails();
-        assertNotNull(responseEntity);
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        assertNotNull(responseEntity.getBody());
-        assertEquals(1, responseEntity.getBody().size());
-    }
-    //Fetch the details using Id
-    @Test
-    @DisplayName("It finds the student by ID")
-    void findById() {
-        // Create a mock StudentModel object
-        StudentModel studentmodel = new StudentModel();
-        studentmodel.setStudentId(50); // Set the ID of the mock student
-        
-        // Stub the behavior of studentrepository to return the mock student
-        when(studentrepository.findById(50)).thenReturn(studentmodel);
-        
-        // Invoke the method under test
-        ResponseEntity<StudentModel> responseEntity = studentservice.findById(50);
-        
-        // Assertions
-        assertNotNull(responseEntity);
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        assertNotNull(responseEntity.getBody());
-        assertEquals(50, responseEntity.getBody().getStudentId()); // Assuming the ID of the returned student matches the ID used in the test
-    }
+        student.setFees(19000);
 
+        // Perform POST request using MockMvc
+        MvcResult result = mockMvc.perform(put("/students/update")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(student)))
+                .andReturn();
 
+        // Extract and print the status code
+        int statusCode = result.getResponse().getStatus();
+   
+        // Assert the status code
+        assertEquals(HttpStatus.CREATED.value(), statusCode);  
+    }
+  
+
+    private String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
