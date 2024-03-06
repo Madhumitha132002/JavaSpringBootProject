@@ -1,0 +1,7 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+public class Excelhelper {
+	public static String TYPE =
+			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+}

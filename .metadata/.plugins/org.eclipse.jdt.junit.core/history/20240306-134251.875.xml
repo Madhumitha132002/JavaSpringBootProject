@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentControllerTest" project="StudentDetails" tests="1" started="1" failures="1" errors="0" ignored="0">
+  <testsuite name="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="1.037" displayname="StudentControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]">
+    <testcase name="findById" classname="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="1.037" displayname="Should retrieve particular details of student" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]/[method:findById()]">
+      <failure>java.lang.AssertionError: No value at JSON path "$[?(@.student_Id == 20)]"
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:37)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:70)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertExistsAndReturn(JsonPathExpectationsHelper.java:330)
+	at org.springframework.test.util.JsonPathExpectationsHelper.exists(JsonPathExpectationsHelper.java:190)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$exists$3(JsonPathResultMatchers.java:123)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.SpringBootProject.StudentDetails.Controller.StudentControllerTest.findById(StudentControllerTest.java:122)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+</failure>
+    </testcase>
+  </testsuite>
+</testrun>

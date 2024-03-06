@@ -372,3 +372,134 @@
 2024-03-05 19:26:09,772 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 2.375 seconds (process running for 3.499)
 2024-03-05 19:26:11,491 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
 2024-03-05 19:26:11,544 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-05 19:36:58,524 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 32051 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-05 19:36:58,526 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-05 19:37:00,582 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 2.31 seconds (process running for 3.397)
+2024-03-05 19:37:02,300 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-06 11:18:04,245 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 6221 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 11:18:04,246 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 11:18:06,359 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 2.382 seconds (process running for 3.661)
+2024-03-06 11:18:07,854 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:18:07,859 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:18:08,225 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - StudentDetails is not deleted
+2024-03-06 11:18:44,048 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 6315 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 11:18:44,049 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 11:18:45,785 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 1.97 seconds (process running for 3.013)
+2024-03-06 11:18:47,081 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:18:47,185 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:26:13,035 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 6623 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 11:26:13,036 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 11:26:14,772 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 1.928 seconds (process running for 2.954)
+2024-03-06 11:26:16,022 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:29:52,656 [http-nio-8080-exec-2] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:30:00,131 [http-nio-8080-exec-3] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:30:53,793 [http-nio-8080-exec-2] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:30:58,774 [http-nio-8080-exec-3] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Rithika, registerNo=91, gender=Female, age=19, phoneNumber=8796756778, currentStatus=Completed, emailId=Rithika@gmail.com, course=Bsc, batch=set14, fees=23000]
+2024-03-06 11:30:58,958 [http-nio-8080-exec-3] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-06 11:31:04,158 [http-nio-8080-exec-4] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:31:19,325 [http-nio-8080-exec-5] ERROR c.S.S.S.StudentDetailsServiceImpl - StudentDetails is not deleted
+2024-03-06 11:31:23,308 [http-nio-8080-exec-6] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 11:34:47,019 [http-nio-8080-exec-9] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:37:10,781 [http-nio-8080-exec-1] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:39:32,059 [http-nio-8080-exec-1] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:41:22,822 [http-nio-8080-exec-2] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:45:27,974 [http-nio-8080-exec-1] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:50:32,501 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 11:50:41,931 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 9037 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 11:50:41,932 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 11:50:43,749 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 2.015 seconds (process running for 3.164)
+2024-03-06 11:50:44,931 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:51:53,577 [http-nio-8080-exec-5] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 11:55:02,995 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 9256 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 11:55:02,996 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 11:55:04,824 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 2.068 seconds (process running for 3.189)
+2024-03-06 11:55:06,106 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 11:55:26,760 [http-nio-8080-exec-8] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 12:01:29,403 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 12:14:14,669 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 10047 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 12:14:14,670 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 12:14:16,124 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 1.676 seconds (process running for 2.697)
+2024-03-06 12:14:17,152 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 12:14:57,354 [http-nio-8080-exec-4] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 12:16:53,473 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 10174 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 12:16:53,474 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 12:16:55,020 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 1.753 seconds (process running for 2.792)
+2024-03-06 12:16:56,058 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 12:19:06,604 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 10299 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 12:19:06,605 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 12:19:08,229 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 1.829 seconds (process running for 2.814)
+2024-03-06 12:19:09,182 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 12:23:44,093 [main] INFO  c.S.S.Service.StudentServiceTest - Starting StudentServiceTest using Java 17.0.10 with PID 10566 (started by madhumitha in /home/madhumitha/JavaSpringBootProject/StudentDetails)
+2024-03-06 12:23:44,094 [main] INFO  c.S.S.Service.StudentServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-06 12:23:45,760 [main] INFO  c.S.S.Service.StudentServiceTest - Started StudentServiceTest in 1.93 seconds (process running for 2.85)
+2024-03-06 13:14:00,709 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=679, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-06 13:14:00,916 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-06 13:21:47,652 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - StudentDetails is not deleted
+2024-03-06 13:22:42,868 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-06 13:23:10,661 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Rithika, registerNo=91, gender=Female, age=19, phoneNumber=8796756778, currentStatus=Completed, emailId=Rithika@gmail.com, course=Bsc, batch=set14, fees=23000]
+2024-03-06 13:23:10,866 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-06 13:23:30,630 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-06 13:24:41,191 [http-nio-8080-exec-5] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Rithika, registerNo=91, gender=Female, age=19, phoneNumber=8796756778, currentStatus=Completed, emailId=Rithika@gmail.com, course=Bsc, batch=set14, fees=23000]
+2024-03-06 13:24:41,195 [http-nio-8080-exec-5] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-06 13:25:53,687 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-06 13:37:33,974 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 13:37:34,012 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 13:42:52,749 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 13:42:52,793 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 13:43:15,243 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 13:43:15,306 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 13:43:59,647 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 13:43:59,690 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 13:45:54,509 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 13:45:54,553 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:51:07,687 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=679, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-06 14:51:07,734 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - Student record is not inserted
+2024-03-06 14:51:07,785 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-06 14:51:07,816 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 14:51:07,822 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:51:07,894 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:51:07,897 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:51:07,913 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - StudentDetails is not deleted
+2024-03-06 14:52:06,135 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=67, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-06 14:52:06,162 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-06 14:52:06,206 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-06 14:52:06,230 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 14:52:06,235 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:06,301 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:06,304 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:06,321 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - StudentDetails is not deleted
+2024-03-06 14:52:34,077 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=67, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-06 14:52:34,109 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-06 14:52:34,156 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-06 14:52:34,184 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 14:52:34,190 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:34,254 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:34,258 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:34,271 [main] ERROR c.S.S.S.StudentDetailsServiceImpl - StudentDetails is not deleted
+2024-03-06 14:52:56,593 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Received student details: StudentModel [studentId=0, name=Gugan, registerNo=67, gender=Male, age=23, phoneNumber=8098161001, currentStatus=Undergoing, emailId=Gugan@gmail.com, course=MCA, batch=set89, fees=19000]
+2024-03-06 14:52:56,621 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student inserted successfully
+2024-03-06 14:52:56,664 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Updates successfully
+2024-03-06 14:52:56,687 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 14:52:56,693 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:56,746 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:56,749 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 14:52:56,761 [main] INFO  c.S.S.S.StudentDetailsServiceImpl - Student Details deleted successfully
+2024-03-06 17:29:00,494 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 17:31:37,562 [http-nio-8080-exec-4] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 17:34:15,416 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 17:34:31,293 [http-nio-8080-exec-3] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 17:35:06,519 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 17:36:29,525 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 17:36:30,280 [http-nio-8080-exec-2] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 18:05:28,656 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 18:19:19,334 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 18:19:29,724 [http-nio-8080-exec-3] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 18:26:15,003 [http-nio-8080-exec-7] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 18:26:38,527 [http-nio-8080-exec-2] ERROR c.S.S.S.StudentDetailsServiceImpl - Record not found
+2024-03-06 19:02:01,127 [http-nio-8080-exec-2] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 19:02:12,192 [http-nio-8080-exec-3] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 19:05:36,055 [http-nio-8080-exec-7] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 19:05:37,023 [http-nio-8080-exec-8] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 19:17:09,971 [http-nio-8080-exec-1] INFO  c.S.S.S.StudentDetailsServiceImpl - Details Retrived Successfully
+2024-03-06 19:31:39,661 [http-nio-8080-exec-2] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully
+2024-03-06 19:31:57,446 [http-nio-8080-exec-3] INFO  c.S.S.S.StudentDetailsServiceImpl - Details retrieved successfully

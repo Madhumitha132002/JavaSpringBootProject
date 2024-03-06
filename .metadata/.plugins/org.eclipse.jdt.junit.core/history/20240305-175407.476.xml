@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceTest" project="StudentDetails" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.528" displayname="StudentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]">
-    <testcase name="addStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.505" displayname="Should add the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:addStudentDetails()]"/>
-    <testcase name="deleteStudentDetails" classname="com.SpringBootProject.StudentDetails.Service.StudentServiceTest" time="0.017" displayname="Should delete the records from database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Service.StudentServiceTest]/[method:deleteStudentDetails()]"/>
-  </testsuite>
-</testrun>

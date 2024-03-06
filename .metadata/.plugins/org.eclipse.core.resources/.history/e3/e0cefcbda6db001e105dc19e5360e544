@@ -1,0 +1,38 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+
+public class Excelhelper {
+	public static String TYPE =
+			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+	
+	static String[] HEADERS= {"StudentId","name","registerNo","gender","age","phoneNumber","currentStatus","emailId","course","fees","batch"};
+	
+	static String SHEET="Student";
+	
+	public static ByteArrayInputStream studentToExcel (List<StudentModel> studentmodel) {
+		
+		try(
+				Workbook workbook= new XSSFWorkbook();
+				ByteArrayOutputStream out=new ByteArrayOutputStream();
+				){
+			Sheet sheet = (Sheet) workbook.createSheet(SHEET);
+			
+		}
+		catch(IOException e) {
+			
+		}
+		return null;
+		
+	}
+
+}

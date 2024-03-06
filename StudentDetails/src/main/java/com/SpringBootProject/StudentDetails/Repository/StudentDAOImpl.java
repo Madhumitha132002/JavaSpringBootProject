@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import com.SpringBootProject.StudentDetails.Model.StudentModel;
+
+
 import java.util.List;
 
 @Repository
@@ -76,6 +78,7 @@ public class StudentDAOImpl implements StudentDAO {
         }
     }
 
+    @Override
     public List<StudentModel> getAllStudentDetails() {
         try {
             String selectQuery = "SELECT * FROM Student";

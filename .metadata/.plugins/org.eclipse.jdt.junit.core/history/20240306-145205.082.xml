@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentControllerTest" project="StudentDetails" tests="5" started="5" failures="1" errors="0" ignored="0">
+  <testsuite name="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="1.248" displayname="StudentControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]">
+    <testcase name="addStudentDetails" classname="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="1.112" displayname="Should add the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]/[method:addStudentDetails()]"/>
+    <testcase name="updateStudentDetails" classname="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="0.014" displayname="Should add the records to the database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]/[method:updateStudentDetails()]"/>
+    <testcase name="findById" classname="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="0.083" displayname="Should retrieve particular details of student" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]/[method:findById()]"/>
+    <testcase name="getAllStudentDetails" classname="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="0.018" displayname="Should retrieve all student details" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]/[method:getAllStudentDetails()]"/>
+    <testcase name="deleteStudentDetails" classname="com.SpringBootProject.StudentDetails.Controller.StudentControllerTest" time="0.015" displayname="Should delete the records from database" uniqueid="[engine:junit-jupiter]/[class:com.SpringBootProject.StudentDetails.Controller.StudentControllerTest]/[method:deleteStudentDetails()]">
+      <failure>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;404&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.SpringBootProject.StudentDetails.Controller.StudentControllerTest.deleteStudentDetails(StudentControllerTest.java:71)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+</failure>
+    </testcase>
+  </testsuite>
+</testrun>

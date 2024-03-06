@@ -12,3 +12,5 @@
 2024-03-05 17:50:12,613 [main] ERROR c.S.S.Repository.StudentDAOImpl - Error occurred while adding student details: PreparedStatementCallback; SQL [INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)]; Duplicate entry '679' for key 'Register_No'
 2024-03-05 17:50:53,499 [main] ERROR c.S.S.Repository.StudentDAOImpl - Error occurred while adding student details: PreparedStatementCallback; SQL [INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)]; Duplicate entry '679' for key 'Register_No'
 2024-03-05 18:06:16,842 [http-nio-8080-exec-3] ERROR c.S.S.Repository.StudentDAOImpl - Error occurred while adding student details: PreparedStatementCallback; SQL [INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)]; Duplicate entry '91' for key 'Register_No'
+2024-03-06 14:51:07,733 [main] ERROR c.S.S.Repository.StudentDAOImpl - Error occurred while adding student details: PreparedStatementCallback; SQL [INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)]; Duplicate entry '679' for key 'Register_No'
+2024-03-06 18:26:38,526 [http-nio-8080-exec-2] INFO  c.S.S.Repository.StudentDAOImpl - Student not found with ID: 0
