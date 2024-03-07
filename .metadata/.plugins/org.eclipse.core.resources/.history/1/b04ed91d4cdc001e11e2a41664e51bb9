@@ -1,0 +1,76 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Phrase;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
+
+public class PDFGenerator {
+
+    private List<StudentModel> studentList;
+
+    public void generate(List<StudentModel> studentList, String filePath) throws DocumentException, IOException {
+        // Creating the Object of Document
+        Document document = new Document(PageSize.A4);
+        // Getting instance of PdfWriter
+        PdfWriter.getInstance(document, new FileOutputStream(filePath));
+        // Opening the created document to modify it
+        document.open();
+        // Creating font
+        // Setting font style and size
+        Font fontTitle = FontFactory.getFont(FontFactory.TIMES_ROMAN);
+        fontTitle.setSize(20);
+        // Creating paragraph
+        Paragraph paragraph = new Paragraph("List Of Students", fontTitle);
+        // Aligning the paragraph in document
+        paragraph.setAlignment(Paragraph.ALIGN_CENTER);
+        // Adding the created paragraph in document
+        document.add(paragraph);
+        // Creating a table of 3 columns
+        PdfPTable table = new PdfPTable(3);
+        // Setting width of table, its columns and spacing
+        table.setWidthPercentage(100f);
+        table.setWidths(new float[] { 1, 3, 2 });
+        table.setSpacingBefore(10);
+        // Create Table Cells for table header
+        PdfPCell cell = new PdfPCell();
+        // Setting the background color and padding
+        cell.setBackgroundColor(new java.awt.Color(255, 0, 255)); // Magenta color
+        cell.setPadding(5);
+        // Creating font
+        // Setting font style and size
+        Font font = FontFactory.getFont(FontFactory.TIMES_ROMAN);
+        font.setColor(new java.awt.Color(255, 255, 255)); // White color
+        // Adding headings in the created table cell/ header
+        // Adding Cell to table
+        cell.setPhrase(new Phrase("ID", font));
+        table.addCell(cell);
+        cell.setPhrase(new Phrase("Student Name", font));
+        table.addCell(cell);
+        cell.setPhrase(new Phrase("Section", font));
+        table.addCell(cell);
+        // Iterating over the list of students
+        for (StudentModel student : studentList) {
+            // Adding student id
+            table.addCell(String.valueOf(student.getId()));
+            // Adding student name
+            table.addCell(student.getName());
+            // Adding student section
+            table.addCell(student.getSection());
+        }
+        // Adding the created table to document
+        document.add(table);
+        // Closing the document
+        document.close();
+    }
+}

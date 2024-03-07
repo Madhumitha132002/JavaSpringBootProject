@@ -1,0 +1,92 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.List;
+
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.lowagie.text.Document;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Phrase;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
+
+public class PDFGenerator {
+
+    public static InputStream generator(List<StudentModel> studentList){
+
+        Document document = new Document(PageSize.A4);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        try {
+            PdfWriter.getInstance(document, outputStream);
+
+            document.open();
+
+            Font fontTitle = FontFactory.getFont(FontFactory.TIMES_ROMAN);
+            fontTitle.setSize(20);
+
+            Paragraph paragraph = new Paragraph("List Of Students", fontTitle);
+            paragraph.setAlignment(Paragraph.ALIGN_CENTER);
+            document.add(paragraph);
+
+            PdfPTable table = new PdfPTable(11); // Adjusted to 11
+
+            table.setWidthPercentage(100f);
+            table.setWidths(new float[] { 1, 3, 2 });
+            table.setSpacingBefore(10);
+
+            Font font = FontFactory.getFont(FontFactory.TIMES_ROMAN);
+            font.setColor(new java.awt.Color(0, 0, 128));
+
+            // Adding column headers
+            table.addCell(createCell("StudentId", font));
+            table.addCell(createCell("Student Name", font));
+            table.addCell(createCell("RegisterNo", font));
+            table.addCell(createCell("Gender", font));
+            table.addCell(createCell("Age", font));
+            table.addCell(createCell("PhoneNumber", font));
+            table.addCell(createCell("CurrentStatus", font));
+            table.addCell(createCell("EmailId", font));
+            table.addCell(createCell("Course", font));
+            table.addCell(createCell("Batch", font));
+            table.addCell(createCell("Fees", font));
+
+            // Adding cells with student data
+            for (StudentModel student : studentList) {
+                table.addCell(String.valueOf(student.getStudentId()));
+                table.addCell(student.getName());
+                table.addCell(student.getRegisterNo());
+                table.addCell(student.getGender());
+                table.addCell(String.valueOf(student.getAge()));
+                table.addCell(student.getPhoneNumber());
+                table.addCell(student.getCurrentStatus());
+                table.addCell(student.getEmailId());
+                table.addCell(student.getCourse());
+                table.addCell(student.getBatch());
+                table.addCell(String.valueOf(student.getFees()));
+            }
+
+            document.add(table);
+            document.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new ByteArrayInputStream(outputStream.toByteArray());
+    }
+
+    private static PdfPCell createCell(String text, Font font) {
+        PdfPCell cell = new PdfPCell();
+        cell.setPhrase(new Phrase(text, font));
+        cell.setBackgroundColor(new java.awt.Color(0, 0, 255));
+        cell.setPadding(5);
+        return cell;
+    }
+}

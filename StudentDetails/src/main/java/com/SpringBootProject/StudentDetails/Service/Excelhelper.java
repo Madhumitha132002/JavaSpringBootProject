@@ -54,8 +54,11 @@ public class Excelhelper {
 			row.createCell(10).setCellValue(studentmodel1.getFees());
 			}
 			workbook.write(out);
+			
 			return new ByteArrayInputStream(out.toByteArray());
+		
 		}catch(IOException e) {
+			
 			throw new RuntimeException("fail to import data to Excel file: " + e.getMessage());
 		}
 		

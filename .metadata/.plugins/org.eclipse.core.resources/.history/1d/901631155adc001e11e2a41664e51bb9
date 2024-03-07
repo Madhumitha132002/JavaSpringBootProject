@@ -1,0 +1,88 @@
+package com.SpringBootProject.StudentDetails.Service;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.List;
+
+import com.SpringBootProject.StudentDetails.Model.StudentModel;
+import com.lowagie.text.Document;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Phrase;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
+
+public class PDFGenerator {
+
+    public static InputStream generator(List<StudentModel> studentList){
+
+        Document document = new Document(PageSize.A4);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        try {
+            PdfWriter.getInstance(document, outputStream);
+
+            document.open();
+
+            Font fontTitle = FontFactory.getFont(FontFactory.TIMES_ROMAN);
+            fontTitle.setSize(20);
+
+            Paragraph paragraph = new Paragraph("List Of Students", fontTitle);
+            paragraph.setAlignment(Paragraph.ALIGN_CENTER);
+            document.add(paragraph);
+
+            PdfPTable table = new PdfPTable(11); // Adjust the number of columns here
+
+            table.setWidthPercentage(100f);
+            table.setSpacingBefore(10);
+
+            Font font = FontFactory.getFont(FontFactory.TIMES_ROMAN);
+            font.setColor(new java.awt.Color(0, 0, 128));
+
+            // Adding headers
+            addCell(table, "StudentId", font);
+            addCell(table, "Student Name", font);
+            addCell(table, "RegisterNo", font);
+            addCell(table, "Gender", font);
+            addCell(table, "Age", font);
+            addCell(table, "PhoneNumber", font);
+            addCell(table, "CurrentStatus", font);
+            addCell(table, "EmailId", font);
+            addCell(table, "Course", font);
+            addCell(table, "Batch", font);
+            addCell(table, "Fees", font);
+
+            // Adding cells for each student
+            for (StudentModel student : studentList) {
+                addCell(table, String.valueOf(student.getStudentId()), font);
+                addCell(table, student.getName(), font);
+                addCell(table, student.getRegisterNo(), font);
+                addCell(table, student.getGender(), font);
+                addCell(table, String.valueOf(student.getAge()), font);
+                addCell(table, student.getPhoneNumber(), font);
+                addCell(table, student.getCurrentStatus(), font);
+                addCell(table, student.getEmailId(), font);
+                addCell(table, student.getCourse(), font);
+                addCell(table, student.getBatch(), font);
+                addCell(table, String.valueOf(student.getFees()), font);
+            }
+
+            document.add(table);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            document.close();
+        }
+
+        return new ByteArrayInputStream(outputStream.toByteArray());
+    }
+
+    private static void addCell(PdfPTable table, String text, Font font) {
+        PdfPCell cell = new PdfPCell(new Phrase(text, font));
+        table.addCell(cell);
+    }
+}

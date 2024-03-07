@@ -2,12 +2,12 @@ package com.SpringBootProject.StudentDetails.Controller;
 import com.SpringBootProject.StudentDetails.Model.StudentModel;
 import com.SpringBootProject.StudentDetails.Service.CSVHelper;
 import com.SpringBootProject.StudentDetails.Service.Excelhelper;
+import com.SpringBootProject.StudentDetails.Service.PDFGenerator;
 import com.SpringBootProject.StudentDetails.Service.StudentDetailsServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost")
 //Indicate a particular class servers RESTFUL web servers
 @RestController
 //Specifies all the request mappings in controller using this base path
@@ -29,7 +29,8 @@ public class StudentController {
 	  @Autowired
     private  StudentDetailsServiceImpl studentService;
 	  
-	  @Autowired
+	  
+	@Autowired
 	  private Excelhelper excelhelper;
 	  
 	  @Operation(
@@ -153,6 +154,7 @@ public class StudentController {
 	              .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
 	              .body(file);
 	  }
+	  
 	  @GetMapping("/download/excel/{studentId}")
 	  public ResponseEntity<Resource> getuserFile(@PathVariable int studentId) {
 	      String filename = "studentdetail.xlsx";
@@ -198,5 +200,35 @@ public class StudentController {
 	  .contentType(MediaType.parseMediaType("application/csv"))
 	  .body(file);
 	  }
+	  
+	  @GetMapping("/download/PDF")
+	    public ResponseEntity<Resource> getPDFFile() {
+	        String filename = "students.pdf";
+	        ResponseEntity<List<StudentModel>> getAllStudentDetails = studentService.getAllStudentDetails();
+	        List<StudentModel> studentList = getAllStudentDetails.getBody(); // Extracting the list of student models
+
+	        InputStreamResource file = new InputStreamResource(PDFGenerator.generator(studentList));
+	        return ResponseEntity.ok()
+	                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
+	                .contentType(MediaType.APPLICATION_PDF)
+	                .body(file);
+	    }
+	  @GetMapping("/download/PDF/{StudentId}")
+	  public ResponseEntity<Resource> getPDFFileUser(@PathVariable int StudentId) {
+		  String filename = "studentdetail.pdf";
+		// Get the StudentModel object by studentId
+	      ResponseEntity<StudentModel> getStudentById = studentService.findById(StudentId);
+	      StudentModel student = getStudentById.getBody();
+	      
+	      // Create a list and add the student object to it
+	      List<StudentModel> studentList = new ArrayList<>();
+	      studentList.add(student);
+	      InputStreamResource file = new InputStreamResource(PDFGenerator.generator(studentList));
+	      return ResponseEntity.ok()
+	     .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
+	     .contentType(MediaType.APPLICATION_PDF)
+         .body(file);
+	  }
+	  
 	  
 }
